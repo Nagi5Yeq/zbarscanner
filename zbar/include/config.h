@@ -1,0 +1,2 @@
+#define ENABLE_QRCODE 1
+#define ENABLE_SQCODE 1

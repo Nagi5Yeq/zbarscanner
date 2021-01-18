@@ -1,0 +1,167 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+/////////////////////////////////////////////////////////////////////////////
+// 中文(简体，中国) resources
+
+#include "windows.h"
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON                    zbarscanner.ico
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "CompanyName", "Nagi"
+            VALUE "FileDescription", "QR code scanner based on zbar"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "zbarscanner.exe"
+            VALUE "LegalCopyright", "Copyright (C) 2021"
+            VALUE "OriginalFilename", "zbarscanner.exe"
+            VALUE "ProductName", "zbarscanner"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_RESULTDLG DIALOGEX 0, 0, 255, 250
+STYLE DS_SETFONT | WS_OVERLAPPED | WS_MINIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "扫描结果"
+FONT 9, "微软雅黑", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "关闭",IDOK,198,94,50,11
+    EDITTEXT        IDC_RESULTEDIT,7,7,241,81,ES_MULTILINE | ES_AUTOVSCROLL | WS_VSCROLL
+    COMBOBOX        IDC_ECCLEVEL,13,100,48,30,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_MASK,81,100,48,30,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "二进制编辑",IDC_BINARY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,141,94,50,10
+    GROUPBOX        "纠错级别",IDC_STATIC,7,89,60,30
+    GROUPBOX        "掩码",IDC_STATIC,74,89,60,30
+    CONTROL         "自动提高纠错",IDC_BOOSTECC,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,141,108,57,10
+    PUSHBUTTON      "保存图片",IDSAVEIMAGE,198,108,50,11
+    LTEXT           "生成失败",IDC_FAILED,113,180,28,8
+END
+
+IDD_ABOUT DIALOGEX 0, 0, 235, 71
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于"
+FONT 9, "微软雅黑", 400, 0, 0x0
+BEGIN
+    ICON            IDI_ICON1,IDC_STATIC,13,20,20,20
+    CONTROL         "Author: Nagi\r\nQR Reader: <A HREF=""https://github.com/mchehab/zbar"">zbar</A> v0.23.1 (GNU LGPL v2.1 License)\r\nQR Writer: <A HREF=""https://github.com/nayuki/QR-Code-generator"">qrcodegen</A> v1.6.0 (MIT License)",IDC_ABOUT,
+                    "SysLink",WS_TABSTOP,42,9,164,26
+    CONTROL         "Image Function: <A HREF=""https://github.com/nothings/stb/blob/master/stb_image.h"">stb_image</A> v2.26, <A HREF=""https://github.com/nothings/stb/blob/master/stb_image_write.h"">stb_image_write</A> v1.15 (Public Domain)",IDC_ABOUT2,
+                    "SysLink",WS_TABSTOP,42,33,164,17
+    DEFPUSHBUTTON   "关闭",IDOK,177,53,50,11
+    CONTROL         "GNU GPL v2.0 License, <A HREF=""https://github.com/Nagi5Yeq/zbarscanner"">Source Code</A>",IDC_ABOUT3,"SysLink",WS_TABSTOP,42,50,123,9
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_RESULTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 248
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 263
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_RESULTDLG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // 中文(简体，中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
