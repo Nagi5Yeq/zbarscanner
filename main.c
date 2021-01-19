@@ -16,12 +16,14 @@
 HINSTANCE instance;
 HWND window;
 HICON icon;
-HMENU menu;
+HMENU menu = NULL;
 NOTIFYICONDATA ni;
 BOOL rawMode = FALSE;
+UINT taskbarCreatedMsg;
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 void ShowTrayIcon();
+void InitMenu();
 void HandleTrayIcon(LPARAM lParam);
 void FullScreenScan();
 void ImageFileScan();
@@ -56,7 +58,9 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     if (window == NULL) {
         return 2;
     }
+    InitMenu();
     ShowTrayIcon();
+    taskbarCreatedMsg = RegisterWindowMessage(TEXT("TaskBarCreated"));
     while (GetMessage(&message, NULL, 0, 0)) {
         TranslateMessage(&message);
         DispatchMessage(&message);
@@ -99,12 +103,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam,
         PostQuitMessage(0);
         return 0;
     default:
+        if (message == taskbarCreatedMsg) {
+            ShowTrayIcon();
+            return 0;
+        }
         break;
     }
     return DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-void ShowTrayIcon() {
+void InitMenu() {
     menu = CreatePopupMenu();
     AppendMenu(menu, 0, IDM_SCAN, TEXT("扫描全屏幕"));
     // AppendMenu(menu, 0, IDM_SELECTSCAN, TEXT("扫描选定屏幕区域"));
@@ -115,6 +123,9 @@ void ShowTrayIcon() {
     AppendMenu(menu, 0, IDM_OPEN, TEXT("打开编辑器"));
     AppendMenu(menu, 0, IDM_ABOUT, TEXT("关于"));
     AppendMenu(menu, 0, IDM_EXIT, TEXT("退出"));
+}
+
+void ShowTrayIcon() {
     ni.cbSize = sizeof(NOTIFYICONDATA);
     ni.uID = 0;
     ni.hWnd = window;
